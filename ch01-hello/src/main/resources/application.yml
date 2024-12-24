@@ -1,0 +1,41 @@
+# web server
+server:
+  port: 9080
+  servlet:
+    context-path: /myapp
+
+# spring
+spring:
+  application:
+    name: hello-druid
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    platform: h2
+    schema: classpath:schema.sql #可以自定义文件名
+    data: classpath:data.sql #可以自定义文件名
+  # jpa
+  jpa:
+    hibernate:
+      ddl-auto: update #只有是update模式,data.sql的脚本才会被执行
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+  # h2
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+
+# logging
+logging:
+  level:
+    root: INFO
+    org:
+      springframework: INFO
+
