@@ -31,6 +31,10 @@
 
     <!-- 配置日志记录器 -->
     <Loggers>
+        <!--为mybatis输出sql日志设置独立的logger DEBUG才能触发输出-->
+        <logger name="xxx.dao.mapper" additivity="true" level="DEBUG">
+            <AppenderRef ref="Console"/>
+        </logger>
         <!-- 设置根日志记录器 -->
         <Root>
             <AppenderRef ref="Console"/>
