@@ -1,7 +1,7 @@
 package org.example.learn.spring.boot.mybatis.hello.service;
 
 
-import org.example.learn.spring.boot.mybatis.hello.mapper.UserMapper;
+import org.example.learn.spring.boot.mybatis.hello.dao.mapper.UserMapper;
 import org.example.learn.spring.boot.mybatis.hello.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

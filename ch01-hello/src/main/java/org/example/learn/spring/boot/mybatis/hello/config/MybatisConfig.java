@@ -1,6 +1,6 @@
 package org.example.learn.spring.boot.mybatis.hello.config;
 
-import org.example.learn.spring.boot.mybatis.hello.mapper.MybatisScanFlag;
+import org.example.learn.spring.boot.mybatis.hello.dao.mapper.MybatisScanFlag;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 

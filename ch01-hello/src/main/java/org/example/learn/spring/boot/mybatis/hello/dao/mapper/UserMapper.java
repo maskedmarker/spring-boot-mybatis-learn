@@ -1,4 +1,4 @@
-package org.example.learn.spring.boot.mybatis.hello.mapper;
+package org.example.learn.spring.boot.mybatis.hello.dao.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.example.learn.spring.boot.mybatis.hello.model.User;
