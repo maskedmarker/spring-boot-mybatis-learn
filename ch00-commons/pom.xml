@@ -11,6 +11,9 @@
 
     <artifactId>ch00-commons</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>ch001-h2-server-mode</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
