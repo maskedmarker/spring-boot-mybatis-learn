@@ -1,7 +1,7 @@
 package org.example.learn.spring.boot.mybatis.hello.service;
 
 
-import org.example.learn.spring.boot.mybatis.hello.dao.UserRepository;
+import org.example.learn.spring.boot.mybatis.hello.mapper.UserMapper;
 import org.example.learn.spring.boot.mybatis.hello.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,10 +13,10 @@ import java.util.List;
 public class UserService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserMapper userMapper;
 
     public List<User> findAllUsers() {
-        return userRepository.findAll();
+        return userMapper.findAll();
     }
 
     public User saveUser(User user) {
@@ -27,6 +27,8 @@ public class UserService {
             user.setUpdateTime(new Date());
         }
 
-        return userRepository.save(user);
+        userMapper.save(user);
+
+        return user;
     }
 }
