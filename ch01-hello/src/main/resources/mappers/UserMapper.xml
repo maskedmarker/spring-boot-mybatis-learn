@@ -12,10 +12,10 @@
     </resultMap>
 
     <select id="findAll" resultMap="baseResultMap">
-        SELECT id, name, email, create_time, update_time FROM user
+        SELECT id, name, email, create_time, update_time FROM t_user
     </select>
 
     <insert id="save" useGeneratedKeys="true" keyProperty="id">
-        insert into user (name, email, create_time, update_time) values (#{name}, #{email}, #{createTime}, #{updateTime})
+        insert into t_user (name, email, create_time, update_time) values (#{name}, #{email}, #{createTime}, #{updateTime})
     </insert>
 </mapper>
