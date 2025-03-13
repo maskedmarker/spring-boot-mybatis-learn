@@ -1,9 +1,3 @@
-# web server
-server:
-  port: 9080
-  servlet:
-    context-path: /myapp
-
 # spring
 spring:
   application:
