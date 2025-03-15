@@ -7,25 +7,40 @@
         <id property="id" column="id" />
         <result property="name" column="name" />
         <result property="email" column="email" />
+        <result property="userStatus" column="user_status" />
         <result property="createTime" column="create_time" />
         <result property="updateTime" column="update_time" />
     </resultMap>
 
     <select id="findAll" resultMap="baseResultMap">
-        SELECT id, name, email, create_time, update_time FROM t_user
+        SELECT id, name, email, user_status, create_time, update_time FROM t_user
     </select>
 
     <insert id="save" useGeneratedKeys="true" keyProperty="id">
-        insert into t_user (name, email, create_time, update_time) values (#{name}, #{email}, #{createTime}, #{updateTime})
+        insert into t_user (name, email, user_status, create_time, update_time) values (#{name}, #{email}, #{userStatus}, #{createTime}, #{updateTime})
     </insert>
 
     <select id="queryByParam" resultMap="baseResultMap">
-        SELECT id, name, email, create_time, update_time
+        SELECT id, name, email, user_status, create_time, update_time
         FROM t_user
         <where>
             <if test="id != null"> and id = #{id}</if>
             <if test="name != null and name.length > 0"> and name = #{name}</if>
             <if test="email != null"> and email = #{email}</if>
+        </where>
+    </select>
+
+    <select id="queryByParam2" resultMap="baseResultMap" parameterType="map">
+        SELECT id, name, email, user_status, create_time, update_time
+        FROM t_user
+        <where>
+            <if test="id != null"> and id = #{id}</if>
+            <if test="name != null"> and name = #{name}</if>
+            <if test="email != null"> and email = #{email}</if>
+            <choose>
+                <when test="activeStatus == 1">and user_status in ('1', '2')</when>
+                <when test="activeStatus == 0">and user_status in ('0')</when>
+            </choose>
         </where>
     </select>
 </mapper>

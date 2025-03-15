@@ -14,4 +14,6 @@ public interface UserMapper {
     int save(User user);
 
     List<User> queryByParam(Map<String, Object> param);
+
+    List<User> queryByParam2(Map<String, Object> param);
 }

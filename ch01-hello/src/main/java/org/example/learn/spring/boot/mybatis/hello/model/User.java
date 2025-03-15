@@ -1,5 +1,7 @@
 package org.example.learn.spring.boot.mybatis.hello.model;
 
+import org.example.learn.spring.boot.mybatis.hello.util.JsonUtils;
+
 import java.util.Date;
 
 public class User {
@@ -9,6 +11,9 @@ public class User {
     private String name;
 
     private String email;
+
+    // 用户状态 0-注销 1-正常 2-冻结
+    private String userStatus;
 
     private Date createTime;
 
@@ -38,6 +43,14 @@ public class User {
         this.email = email;
     }
 
+    public String getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -52,5 +65,10 @@ public class User {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return JsonUtils.toJsonStr(this);
     }
 }

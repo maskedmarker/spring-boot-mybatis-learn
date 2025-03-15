@@ -1,0 +1,8 @@
+create table t_user (
+  id INTEGER NOT NULL AUTO_INCREMENT,
+  name VARCHAR(16),
+  email VARCHAR(128),
+  user_status VARCHAR(1),
+  create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  update_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
