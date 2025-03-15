@@ -1,4 +1,4 @@
-create table user (
+create table t_user (
   id INTEGER NOT NULL AUTO_INCREMENT,
   name VARCHAR(16),
   email VARCHAR(128),
