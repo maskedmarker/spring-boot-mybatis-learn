@@ -43,4 +43,18 @@
             </choose>
         </where>
     </select>
+
+    <select id="queryByParam3" resultMap="baseResultMap" parameterType="map">
+        SELECT id, name, email, user_status, create_time, update_time
+        FROM t_user
+        <where>
+            <if test="id != null"> and id = #{id}</if>
+            <if test="name != null"> and name = #{name}</if>
+            <if test="email != null"> and email = #{email}</if>
+            <choose>
+                <when test='activeStatus == "1"'>and user_status in ('1', '2')</when>
+                <when test='activeStatus == "0"'>and user_status in ('0')</when>
+            </choose>
+        </where>
+    </select>
 </mapper>
