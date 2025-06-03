@@ -70,4 +70,19 @@ public class OgnlTest {
         System.out.println("value = " + value);
         Assertions.assertTrue((Boolean) value);
     }
+
+    /**
+     * 复杂条件（使用括号）
+     */
+    @Test
+    public void test1() throws OgnlException {
+        User user = new User();
+        user.setName("001");
+        user.setUserStatus("1");
+
+
+        Map context = Ognl.createDefaultContext(user, memberAccess);
+        Object value = Ognl.getValue("name == \"002\" or (userStatus == \"1\" and name != \"002\")", context, user);
+        Assertions.assertTrue((Boolean) value);
+    }
 }
