@@ -3,7 +3,7 @@
     <!-- 上面的status指的是Log4j 自身内部的日志级别，可以帮助调试 Log4j 的配置问题 -->
 
     <Properties>
-        <Property name="LOG_PATTERN">[%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] [%-5p] [%t] [%c{1.}]:[%M:%L] - %m%n</Property>
+        <Property name="LOG_PATTERN">[%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] [%-5p] [%t] [%C{1.}]:[%M:%L] - %m%n</Property>
     </Properties>
 
     <!-- 定义日志上下文 -->
