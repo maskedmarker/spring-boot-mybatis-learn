@@ -46,6 +46,12 @@
             <AppenderRef ref="Console"/>
             <AppenderRef ref="SqlRollingFile"/>
         </logger>
+
+        <!--通过设置org.apache.ibatis logger是没有用的-->
+<!--        <logger name="org.apache.ibatis" level="DEBUG"  additivity="false">-->
+<!--            <AppenderRef ref="Console"/>-->
+<!--        </logger>-->
+
         <!-- 设置根日志记录器 -->
         <Root>
             <AppenderRef ref="Console"/>
