@@ -19,7 +19,7 @@
         </File>
 
         <!-- 带时间滚动的日志文件输出 -->
-        <RollingFile name="RollingFile" fileName="logs/application.log" filePattern="logs/application-%d{yyyy-MM-dd}-%i.log.gz">
+        <RollingFile name="RollingFile" fileName="logs/application.log" filePattern="logs/%d{yyyy-MM-dd}/application-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Policies>
                 <TimeBasedTriggeringPolicy />
