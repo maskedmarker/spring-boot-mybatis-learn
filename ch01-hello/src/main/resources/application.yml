@@ -16,7 +16,6 @@ logging:
   level:
     root: INFO
     org.springframework: INFO
-    org.example.learn.spring.boot.mybatis.hello.dao.mapper: DEBUG
 
 # MyBatis Configuration
 mybatis:

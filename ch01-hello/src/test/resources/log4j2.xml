@@ -29,7 +29,7 @@
         </RollingFile>
 
         <!-- sql 带时间滚动的日志文件输出 -->
-        <RollingFile name="SqlRollingFile" fileName="logs/application_sql.log" filePattern="logs/application_sql-%d{yyyy-MM-dd}-%i.log.gz">
+        <RollingFile name="SqlRollingFile" fileName="logs/application_sql.log" filePattern="logs/%d{yyyy-MM-dd}/application_sql_%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -42,7 +42,8 @@
     <!-- 配置日志记录器 -->
     <Loggers>
         <!--为mybatis输出sql日志设置独立的logger DEBUG才能触发输出-->
-        <logger name="org.apache.ibatis" level="DEBUG"  additivity="false">
+        <logger name="mybatisMapper" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console"/>
             <AppenderRef ref="SqlRollingFile"/>
         </logger>
         <!-- 设置根日志记录器 -->
