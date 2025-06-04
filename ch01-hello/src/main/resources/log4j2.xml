@@ -3,7 +3,7 @@
     <!-- 上面的status指的是Log4j 自身内部的日志级别，可以帮助调试 Log4j 的配置问题 -->
 
     <Properties>
-        <Property name="LOG_PATTERN">[%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] [%-5p] [%t] [%C{1.}]:[%M:%L] - %m%n</Property>
+        <Property name="LOG_PATTERN">[%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ}] [%-5p] [%t] [%C{1.}:%M:%L] - %m%n</Property>
     </Properties>
 
     <!-- 定义日志上下文 -->
@@ -29,7 +29,7 @@
         </RollingFile>
 
         <!-- sql 带时间滚动的日志文件输出 -->
-        <RollingFile name="SqlRollingFile" fileName="logs/application_sql.log" filePattern="logs/application_sql-%d{yyyy-MM-dd}-%i.log.gz">
+        <RollingFile name="SqlRollingFile" fileName="logs/application_sql.log" filePattern="logs/%d{yyyy-MM-dd}/application_sql_%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="${LOG_PATTERN}"/>
             <Policies>
                 <TimeBasedTriggeringPolicy />
@@ -41,8 +41,9 @@
 
     <!-- 配置日志记录器 -->
     <Loggers>
-        <!--为mybatis输出sql日志设置独立的logger DEBUG才能触发输出-->
-        <logger name="org.apache.ibatis" level="DEBUG"  additivity="false">
+        <!--为mybatis的mapper输出sql日志设置独立的logger DEBUG才能触发输出-->
+        <logger name="mybatisMapper" level="DEBUG" additivity="false">
+            <AppenderRef ref="Console"/>
             <AppenderRef ref="SqlRollingFile"/>
         </logger>
         <!-- 设置根日志记录器 -->
