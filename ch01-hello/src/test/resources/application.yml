@@ -3,7 +3,7 @@ spring:
   application:
     name: hello-mybatis
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:testdb;TRACE_LEVEL_SYSTEM_OUT=2
     driverClassName: org.h2.Driver
     username: sa
     password:
