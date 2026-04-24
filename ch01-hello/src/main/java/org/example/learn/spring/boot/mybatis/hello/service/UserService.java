@@ -5,6 +5,7 @@ import org.example.learn.spring.boot.mybatis.hello.dao.mapper.UserMapper;
 import org.example.learn.spring.boot.mybatis.hello.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -19,6 +20,7 @@ public class UserService {
         return userMapper.findAll();
     }
 
+    @Transactional
     public User saveUser(User user) {
         if (user.getCreateTime() == null) {
             user.setCreateTime(new Date());
